@@ -12,7 +12,12 @@ if st.button("Get Live Prediction"):
     response = requests.get(url).json()
 
 
-    prediction_value = response['prediction'][0]
+    raw_prediction = response['prediction']
+    
+    if isinstance(raw_prediction, list):
+        prediction_value = raw_prediction[0]
+    else:
+        prediction_value = raw_prediction
     
     st.metric("Latest Prediction", f"{prediction_value:.2f}")
     
