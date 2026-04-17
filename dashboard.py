@@ -7,7 +7,7 @@ st.title("Real-Time AI Insights")
 threshold = st.sidebar.slider("Anomaly Threshold", 0, 100, 50)
 
 if st.button("Get Live Prediction"):
-    response = requests.get("http://localhost:8000/predict?input_val=0.5").json()
+response = requests.get("http://127.0.0").json()
     
     st.metric("Latest Prediction", f"{response['prediction']:.2f}")
     
